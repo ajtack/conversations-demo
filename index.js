@@ -38,11 +38,10 @@ let client = new twilio(config.twilio.accountSid, config.twilio.authToken);
 app.post('/chat', (req, res) => {
   console.log("Received a webhook:", req.body);
   if (req.body.EventType === 'onConversationAdded') {
-    const me = "Tackleton";
     client.conversations.v1.conversations(req.body.ConversationSid)
       .participants
       .create({
-          identity: me
+          identity: "Tack"
         })
       .then(participant => console.log(`Added ${participant.identity} to ${req.body.ConversationSid}.`))
       .catch(err => console.error(`Failed to add a member to ${req.body.ConversationSid}!`, err));
@@ -56,7 +55,6 @@ app.post('/outbound-status', (req, res) => {
   console.log(`Message ${req.body.SmsSid} to ${req.body.To} is ${req.body.MessageStatus}`);
   res.sendStatus(200);
 })
-
 
 
 var ngrokOptions = {

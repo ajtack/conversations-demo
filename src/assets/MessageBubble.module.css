@@ -65,7 +65,7 @@
 .picture_preview {
     transition-duration: 100ms;
     transition-timing-function: ease-in-out;
-    filter: blur(2px);
+    /* filter: blur(2px); */
 }
 
 .media_icon:hover .picture_preview {
