@@ -1,5 +1,5 @@
 try {
-  require('dotenv').load();
+  require('dotenv').config();
 } catch (e) { }
 
 module.exports = {
