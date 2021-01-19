@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@twilio/conversations": "^1.1.0",
     "antd": "^3.20.7",
     "dotenv": "^8.2.0",
     "ngrok": "^3.1.1",
@@ -15,8 +16,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^4.0.1",
     "request-promise": "^4.2.4",
-    "twilio": "~3.33.4",
-    "twilio-chat": "^3.3.1"
+    "twilio": "~3.33.4"
   },
   "devDependencies": {
     "concurrently": "^3.6.1"

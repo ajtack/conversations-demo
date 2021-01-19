@@ -19,7 +19,7 @@ class MessageBubble extends Component {
     componentDidMount = async () => {
         this.setState({
             ...this.state,
-            type: (await this.props.message.getMember()).type
+            type: (await this.props.message.getParticipant()).type
         });
         if (this.state.hasMedia) {
             console.log("Getting URL?!");
@@ -27,6 +27,9 @@ class MessageBubble extends Component {
                 .then(url => {console.log("HUZZAA"); this.setState({ mediaUrl: url })})
                 .catch(e => this.setState({ mediaDownloadFailed: true }));
         }
+        this.props.message.on('updated', e => {
+            this.setState({message: e.message})
+        });
         document.getElementById(this.props.message.sid).scrollIntoView({behavior: "smooth"});
     };
 
@@ -71,7 +74,7 @@ class MessageBubble extends Component {
                     </div>
                     {m.body}
                 </div>
-                <span className={styles.time_date}>{m.timestamp.toLocaleString()}</span>
+                <span className={styles.time_date}>{m.dateCreated.toLocaleString()}</span>
             </div>
         </li>;
     }

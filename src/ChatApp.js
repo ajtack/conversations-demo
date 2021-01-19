@@ -1,6 +1,6 @@
 import React from 'react';
 import {Badge, Icon, Layout, Spin, Typography} from "antd";
-import { Client as ChatClient } from 'twilio-chat';
+import { Client as ChatClient } from '@twilio/conversations';
 
 import './assets/Chat.css';
 import './assets/ChatChannelSection.scss';
@@ -88,10 +88,10 @@ class ChatApp extends React.Component {
       if (state === 'disconnected') this.setState({statusString: 'Disconnected.', chatReady: false, status: "warning"});
       if (state === 'denied') this.setState({statusString: 'Failed to connect.', chatReady: false, status: "error"});
     });
-    this.chatClient.on('channelJoined', channel => {
+    this.chatClient.on('conversationJoined', channel => {
       this.setState({channels: [...this.state.channels, channel]})
     });
-    this.chatClient.on('channelLeft', thisChannel => {
+    this.chatClient.on('conversationLeft', thisChannel => {
       this.setState({channels: [...this.state.channels.filter(it => it !== thisChannel)]});
     })
   };
