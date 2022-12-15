@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-    "@twilio/conversations": "^1.1.0",
+    "@twilio/conversations": "^2.2.1",
     "antd": "^3.20.7",
     "dotenv": "^8.2.0",
     "ngrok": "^3.1.1",
